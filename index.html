@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#6366F1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Bishal Neupane">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>Bishal Neupane - Data Scientist Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <nav class="navbar">
             <div class="nav-container">
@@ -15,6 +26,7 @@
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#agriculture-showcase">Agriculture Showcase</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
@@ -33,15 +45,15 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-wrapper">
                     <div class="hero-main-content">
                         <div class="hero-text-section">
                             <h2>Bishal Neupane</h2>
-                            <h3>Data Analyst | Spatial Analyst | Precision Agriculture 🇳🇵</h3>
-                            <p>A dedicated Remote Data Analyst and Data Science intern proficient in <span class="typewriter-container"><span id="typewriter"></span><span class="cursor">|</span></span>. Experienced in data analysis, visualization, business intelligence, data manipulation and machine learning as well as precision agriculture and spatial analysis & GIS . Passionate about leveraging data to drive insights and innovation across agriculture and technology sectors.</p>
+                            <h3>Precision Agriculture Specialist | Remote Sensing & GIS Expert 🇳🇵</h3>
+                            <p>A dedicated Precision Agriculture Specialist and BSc. Agriculture student proficient in <span class="typewriter-container"><span id="typewriter"></span><span class="cursor">|</span></span>. Experienced in satellite imagery analysis, geospatial data science, Google Earth Engine, and R programming for agricultural applications. Passionate about leveraging remote sensing technology to drive sustainable farming practices and environmental conservation in Nepal.</p>
                             <div class="cta-buttons">
                                 <a href="#about" class="btn btn-primary">Discover More</a>
                                 <a href="#contact" class="btn btn-secondary">Connect With Me</a>
@@ -54,7 +66,11 @@
                             <div class="photo-container">
                                 <div class="photo-frame">
                                     <div class="photo-placeholder">
-                                        <img src="bishal_neupane.jpg" alt="Bishal Neupane - Professional Photo">
+                                        <img src="bishal_neupane.jpg" 
+                                             alt="Bishal Neupane - Professional Photo" 
+                                             loading="eager"
+                                             decoding="async"
+                                             fetchpriority="high">
                                     </div>
                                     <div class="photo-decoration"></div>
                                 </div>
@@ -108,25 +124,28 @@
         <section id="about" class="about">
             <div class="container">
                 <h2>About Me</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>I am a passionate Data Scientist and BSc. Agriculture student with expertise in Machine Learning, Business Intelligence, and Data Analytics. With experience in Python, R, SQL, and advanced analytics tools, I specialize in transforming complex data into actionable business insights.</p>
-                        <p>My technical skills span across data visualization (Power BI, Tableau), machine learning frameworks (TensorFlow, Scikit-learn), and database management (MySQL, PostgreSQL, MongoDB). I have successfully completed internships in software engineering, mapping technologies, and web development, gaining practical experience in full-stack development and data analysis.</p>
-                    </div>
+                
+                <!-- Introduction Section -->
+                <div class="about-intro">
+                    <p class="about-description">I am a passionate <strong>Precision Agriculture Specialist</strong> and BSc. Agriculture student with deep expertise in <strong>Remote Sensing</strong>, <strong>GIS Analysis</strong>, and <strong>Geospatial Data Science</strong>. With extensive experience in Google Earth Engine, R programming, and cutting-edge spatial analytics tools, I specialize in transforming satellite imagery and geospatial datasets into actionable agricultural insights that drive sustainable farming practices.</p>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="about-stats-section">
                     <div class="about-stats">
                         <div class="stat">
                             <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fas fa-satellite-dish"></i>
                             </div>
-                            <h3>3+</h3>
-                            <p>Data Projects</p>
+                            <h3>5+</h3>
+                            <p>Remote Sensing Projects</p>
                         </div>
                         <div class="stat">
                             <div class="stat-icon">
-                                <i class="fas fa-briefcase"></i>
+                                <i class="fas fa-map-marked-alt"></i>
                             </div>
-                            <h3>3</h3>
-                            <p>Internships</p>
+                            <h3>3+</h3>
+                            <p>GIS Applications</p>
                         </div>
                         <div class="stat">
                             <div class="stat-icon">
@@ -134,6 +153,64 @@
                             </div>
                             <h3>4+</h3>
                             <p>Certifications</p>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-icon">
+                                <i class="fab fa-r-project"></i>
+                            </div>
+                            <h3>100+</h3>
+                            <p>Hours R Programming</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expertise Grid -->
+                <div class="expertise-grid">
+                    <div class="expertise-highlight">
+                        <div class="expertise-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Remote Sensing & Earth Observation</h4>
+                            <p>Expert in analyzing <strong>Sentinel-2</strong> and <strong>Landsat imagery</strong> using <strong>Google Earth Engine</strong> for vegetation monitoring, land-cover classification, and agricultural assessment. I specialize in calculating key indices like <strong>NDVI, NDWI, SAVI, GCI & PSRI</strong> to track crop health, water stress, and seasonal variations with pixel-level precision.</p>
+                            <div class="expertise-tags">
+                                <span>Google Earth Engine</span>
+                                <span>Sentinel-2</span>
+                                <span>Landsat</span>
+                                <span>NDVI/NDWI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-highlight">
+                        <div class="expertise-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Precision Agriculture & GIS</h4>
+                            <p>Specialized in developing <strong>precision agriculture solutions</strong> that optimize irrigation, fertilizer application, and crop management. I create automated land-cover classification systems using <strong>K-Means clustering</strong> to identify Alpine/Barren, Sparse Grazing, Rainfed Cropland, Irrigated Cropland, Mixed Forest & Dense Forest areas with detailed area statistics and insights.</p>
+                            <div class="expertise-tags">
+                                <span>Precision Agriculture</span>
+                                <span>K-Means Clustering</span>
+                                <span>Land Classification</span>
+                                <span>Crop Management</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-highlight">
+                        <div class="expertise-icon">
+                            <i class="fas fa-chart-area"></i>
+                        </div>
+                        <div class="expertise-content">
+                            <h4>Geospatial Data Science & R Programming</h4>
+                            <p>My technical foundation spans across <strong>R statistical programming</strong>, advanced data visualization, and scientific research methodologies. I have successfully completed comprehensive training in research data analysis, building interactive maps, time-series analysis, and creating publication-ready visualizations for agricultural and environmental applications.</p>
+                            <div class="expertise-tags">
+                                <span>R Programming</span>
+                                <span>Statistical Analysis</span>
+                                <span>ggplot2</span>
+                                <span>Time-Series</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,6 +233,149 @@
                                 <li>Focus on precision agriculture and data-driven farming solutions</li>
                                 <li>Active in research and technology applications in agriculture</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="agriculture-showcase" class="agriculture-showcase">
+            <div class="container">
+                <h2>🍃 Precision Agriculture Showcase</h2>
+                <p class="section-intro">Real-world applications of remote sensing, GIS, and geospatial data science in agriculture</p>
+                
+                <div class="showcase-grid">
+                    <div class="showcase-item" data-category="precision-ag">
+                        <div class="showcase-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h3>Precision Ag in Kaski, Nepal 🇳🇵</h3>
+                        <p>Used Google Earth Engine to build dry- and wet-season Sentinel-2 composites and derive five key indices—NDVI, NDWI, SAVI, GCI & PSRI—then applied K-Means clustering for six land-cover classes with pixel-level precision.</p>
+                        <div class="showcase-tags">
+                            <span>Google Earth Engine</span>
+                            <span>Sentinel-2</span>
+                            <span>K-Means</span>
+                            <span>NDVI/NDWI</span>
+                        </div>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_precisionag-remotesensing-googleearthengine-activity-7345077332799361024-J8mO?utm_source=share&utm_medium=member_desktop" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" onclick="window.open(this.href, '_blank'); return false;">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                        <div class="showcase-demo">
+                            <div class="demo-satellite">
+                                <div class="satellite-grid">
+                                    <div class="pixel" data-class="forest"></div>
+                                    <div class="pixel" data-class="cropland"></div>
+                                    <div class="pixel" data-class="irrigated"></div>
+                                    <div class="pixel" data-class="barren"></div>
+                                    <div class="pixel" data-class="forest"></div>
+                                    <div class="pixel" data-class="grazing"></div>
+                                    <div class="pixel" data-class="cropland"></div>
+                                    <div class="pixel" data-class="water"></div>
+                                </div>
+                                <div class="indices-display">
+                                    <span class="index">NDVI: 0.82</span>
+                                    <span class="index">NDWI: -0.15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-item" data-category="earth-engine">
+                        <div class="showcase-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3>Google Earth Engine Mastery 🌍</h3>
+                        <p>Completed End-to-End Google Earth Engine course, mastering global geospatial datasets, dynamic mapping, and remote sensing analyses. Generated high-res watershed maps and classified land-cover maps of Nepal.</p>
+                        <div class="showcase-tags">
+                            <span>Time-Series Analysis</span>
+                            <span>NDVI Trends</span>
+                            <span>Land Classification</span>
+                            <span>Nepal</span>
+                        </div>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_googleearthengine-gis-remotesensing-activity-7328753979419475968-7goJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADW0rlUBN76B5N8i59UNKZGZ-32SU0aw2es" target="_blank" rel="noopener" class="btn btn-secondary">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                        <div class="showcase-demo">
+                            <div class="demo-timeseries">
+                                <svg viewBox="0 0 300 120" class="ndvi-chart">
+                                    <path d="M20,100 Q60,20 120,40 Q180,60 260,25" stroke="#4CAF50" fill="none" stroke-width="3"/>
+                                    <path d="M20,80 Q60,40 120,30 Q180,45 260,35" stroke="#2196F3" fill="none" stroke-width="2" stroke-dasharray="5,5"/>
+                                    <text x="20" y="115" font-size="10" fill="#666">2017</text>
+                                    <text x="260" y="115" font-size="10" fill="#666">2025</text>
+                                    <text x="10" y="30" font-size="8" fill="#4CAF50">NDVI</text>
+                                    <text x="10" y="45" font-size="8" fill="#2196F3">NDWI</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-item" data-category="r-programming">
+                        <div class="showcase-icon">
+                            <i class="fab fa-r-project"></i>
+                        </div>
+                        <h3>R Programming for Research 📊</h3>
+                        <p>Mastered Research Data Analysis with R in 7 days - from messy spreadsheets to publication-ready insights. Advanced statistical analysis, ggplot2 visualizations, PCA, and R Markdown reporting for agricultural research.</p>
+                        <div class="showcase-tags">
+                            <span>Statistical Analysis</span>
+                            <span>ggplot2</span>
+                            <span>R Markdown</span>
+                            <span>PCA</span>
+                        </div>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_rstats-rprogramming-scientificresearch-activity-7317535873472897025-ustq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADW0rlUBN76B5N8i59UNKZGZ-32SU0aw2es" target="_blank" rel="noopener" class="btn btn-secondary">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                        <div class="showcase-demo">
+                            <div class="demo-r-analysis">
+                                <div class="r-code">
+                                    <div class="code-line">library(ggplot2)</div>
+                                    <div class="code-line">aov(yield ~ treatment)</div>
+                                    <div class="code-line">ggplot() + geom_point()</div>
+                                </div>
+                                <div class="r-output">
+                                    <div class="plot-area">
+                                        <div class="scatter-point" style="left: 20%; top: 30%;"></div>
+                                        <div class="scatter-point" style="left: 40%; top: 20%;"></div>
+                                        <div class="scatter-point" style="left: 60%; top: 40%;"></div>
+                                        <div class="scatter-point" style="left: 80%; top: 25%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Project Highlight -->
+                <div class="featured-project">
+                    <div class="project-header">
+                        <h3>🔍 Featured: NDWI Analysis for Pokhara Lekhnath</h3>
+                        <p>Tracking water presence and environmental changes using satellite imagery</p>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_this-chart-might-look-simple-but-for-activity-7320496022374260736-mZ7S?utm_source=share&utm_medium=member_desktop&rcm=ACoAADW0rlUBN76B5N8i59UNKZGZ-32SU0aw2es" target="_blank" rel="noopener" class="btn btn-primary">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-insights">
+                        <div class="insight-card">
+                            <div class="insight-icon">📈</div>
+                            <h4>Seasonal Patterns</h4>
+                            <p>Identified seasonal pulses of water presence and persistent negative NDWI patterns</p>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">🛰️</div>
+                            <h4>Satellite Mapping</h4>
+                            <p>Generated visual maps making invisible water body changes visible for decision-makers</p>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">🌊</div>
+                            <h4>Conservation Impact</h4>
+                            <p>Supporting urban resilience, sustainable tourism, and environmental conservation efforts</p>
                         </div>
                     </div>
                 </div>
@@ -238,6 +458,25 @@
             <div class="container">
                 <h2>Experience</h2>
                 <div class="experience-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Jan 28, 2025 - Jul 15, 2025</div>
+                        <div class="timeline-content">
+                            <h3>Agricultural Research Intern 🌾</h3>
+                            <p class="institution">PMAMP Morang (Prime Minister Agriculture Modernization Project)</p>
+                            <p><em>"From Dirt to Data"</em> - 5-month intensive agricultural research internship focusing on plant hormone effects on crop yield</p>
+                            <ul>
+                                <li><strong>Primary Research Project:</strong> Conducted comprehensive study on okra growth and yield optimization using auxin and gibberellin plant hormones</li>
+                                <li><strong>Experimental Design:</strong> Designed and managed controlled field experiments, analyzing hormone concentration effects on plant development and productivity</li>
+                                <li><strong>Data Collection & Analysis:</strong> Monitored seasonal growth patterns, collected yield data, and performed statistical analysis on hormone treatment effectiveness</li>
+                                <li><strong>Field Management:</strong> Gained hands-on experience in agricultural plot management, irrigation optimization, and crop monitoring techniques</li>
+                                <li><strong>Research Resilience:</strong> Overcame experimental challenges including overwatering incidents, demonstrating adaptability and problem-solving in agricultural research</li>
+                                <li><strong>Team Collaboration:</strong> Worked closely with PMAMP research team, supervisors, and fellow interns to ensure project success and knowledge sharing</li>
+                            </ul>
+                            <div class="project-link" style="margin-top: var(--space-md);">
+                                <p style="font-style: italic; color: var(--gray-600);">"This journey gave me a whole new appreciation for farming - it's not just about growing plants; it's about nurturing potential and seeing the fruits of your labor, literally!"</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="timeline-item">
                         <div class="timeline-date">Jan 2024 - Present</div>
                         <div class="timeline-content">
