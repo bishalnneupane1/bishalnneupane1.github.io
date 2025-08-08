@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bishalnneupane1.github.io/sitemap.xml
+
+# Disallow paths (if any)
+# Disallow: /private/

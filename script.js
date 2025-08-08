@@ -40,7 +40,9 @@ function closeMobileNav() {
 if (hamburger) {
     hamburger.addEventListener('click', toggleMobileNav, { passive: true });
     
+    // Remove touch animations on mobile for better performance
     hamburger.addEventListener('touchstart', function(e) {
+        if (window.innerWidth <= 768) return; // Skip animations on mobile
         requestAnimationFrame(() => {
             this.style.transform = 'scale(0.9)';
             this.style.transition = 'transform 0.1s ease';
@@ -48,6 +50,7 @@ if (hamburger) {
     }, { passive: true });
     
     hamburger.addEventListener('touchend', function() {
+        if (window.innerWidth <= 768) return; // Skip animations on mobile
         requestAnimationFrame(() => {
             this.style.transform = '';
         });
@@ -98,6 +101,9 @@ let scrollTimeout;
 let lastScrollY = 0;
 
 function handleNavbarScroll() {
+    // Skip navbar animations on mobile for better performance
+    if (window.innerWidth <= 768) return;
+    
     const currentScrollY = window.scrollY;
     
     if (Math.abs(currentScrollY - lastScrollY) < 5) return;
@@ -204,7 +210,29 @@ function startTypewriter() {
     
     console.log('✅ Starting typewriter animation');
     
-    const skills = [
+    // Responsive text based on screen size
+    const isMobileView = window.innerWidth <= 480;
+    const isTabletView = window.innerWidth <= 768;
+    
+    const skills = isMobileView ? [
+        'Remote Sensing 🛰️',
+        'Earth Engine 🌍',
+        'Python & R 📊',
+        'Agri Data Science 🌾',
+        'Satellite Analysis 📈',
+        'GIS Mapping 🗺️',
+        'NDVI Monitor 💧',
+        'Precision Agri 🚜'
+    ] : isTabletView ? [
+        'Remote Sensing & GIS 🛰️',
+        'Google Earth Engine 🌍',
+        'Python & R Code 📊',
+        'Agricultural Data 🌾',
+        'Satellite Analysis 📈',
+        'Geospatial Maps 🗺️',
+        'NDVI Monitoring 💧',
+        'Precision Farming 🚜'
+    ] : [
         'Remote Sensing & GIS 🛰️',
         'Google Earth Engine 🌍',
         'Python & R Programming 📊',
@@ -221,9 +249,16 @@ function startTypewriter() {
     let charIndex = 0;
     
     typewriterInterval = setInterval(() => {
+        const cursor = document.querySelector('.cursor');
+        
         if (isDeleting) {
             element.textContent = currentSkill.substring(0, charIndex - 1);
             charIndex--;
+            
+            // Position cursor at the end of current text
+            if (cursor) {
+                cursor.style.left = `${element.offsetWidth}px`;
+            }
             
             if (charIndex === 0) {
                 isDeleting = false;
@@ -234,12 +269,17 @@ function startTypewriter() {
             element.textContent = currentSkill.substring(0, charIndex + 1);
             charIndex++;
             
+            // Position cursor at the end of current text
+            if (cursor) {
+                cursor.style.left = `${element.offsetWidth}px`;
+            }
+            
             if (charIndex === currentSkill.length + 1) {
                 isDeleting = true;
                 setTimeout(() => {}, 2000);
             }
         }
-    }, isDeleting ? 30 : 80);
+    }, isDeleting ? (isMobileView ? 25 : 30) : (isMobileView ? 60 : 80));
 }
 
 // Initialize typewriter
@@ -296,12 +336,19 @@ document.body.appendChild(scrollToTopBtn);
 
 // Show/hide scroll to top button
 function handleScrollToTop() {
+    // Hide scroll-to-top button on mobile for better performance
+    if (window.innerWidth <= 768) {
+        scrollToTopBtn.style.opacity = '0';
+        scrollToTopBtn.style.visibility = 'hidden';
+        return;
+    }
+    
     if (window.pageYOffset > 300) {
         scrollToTopBtn.style.opacity = '1';
         scrollToTopBtn.style.visibility = 'visible';
     } else {
         scrollToTopBtn.style.opacity = '0';
-        scrollToTopBtn.style.visibility = 'visible';
+        scrollToTopBtn.style.visibility = 'hidden';
     }
 }
 
@@ -314,8 +361,8 @@ scrollToTopBtn.addEventListener('click', () => {
     });
 });
 
-// Enhanced touch support for mobile
-if ('ontouchstart' in window) {
+// Enhanced touch support for mobile - disabled animations for better performance
+if ('ontouchstart' in window && window.innerWidth > 768) {
     const interactiveElements = document.querySelectorAll('.btn, .social-link, .certification-card, .skill-category, .timeline-content, .contact-item');
     
     interactiveElements.forEach(element => {

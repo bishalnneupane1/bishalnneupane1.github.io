@@ -32,6 +32,23 @@ html {
     backface-visibility: hidden;
 }
 
+/* GitHub Pages Performance Optimizations */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Critical resource hints for GitHub Pages */
+img {
+    loading: lazy;
+    decoding: async;
+}
+
+/* Optimize for GitHub Pages CDN */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
     /* Agricultural Data Science Color Palette */
     --primary: #2E7D32; /* Forest Green - Agriculture */
@@ -305,6 +322,19 @@ a:hover {
 
 .btn-accent:hover::after {
     left: 100%;
+}
+
+/* Small button variant */
+.btn-small {
+    padding: var(--space-sm) var(--space-lg) !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    min-height: auto !important;
+}
+
+.btn-small i {
+    font-size: 0.875rem !important;
+    margin-right: 0.5rem !important;
 }
 
 @keyframes heroBtnPulse {
@@ -634,8 +664,8 @@ a:hover {
     animation: pulse 3s ease-in-out infinite;
 }
 
-.hero h2 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+.hero h1 {
+    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
     font-weight: 900;
     line-height: 1.1;
     background: var(--gradient-cosmic);
@@ -643,13 +673,28 @@ a:hover {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     position: relative;
     font-family: var(--font-display);
     letter-spacing: -0.02em;
 }
 
-.hero h2::after {
+.hero h2 {
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 600;
+    line-height: 1.3;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(46, 125, 50, 0.3);
+    margin-bottom: var(--space-lg);
+    position: relative;
+    font-family: var(--font-primary);
+    letter-spacing: -0.01em;
+}
+
+.hero h1::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -661,31 +706,34 @@ a:hover {
     animation: textGlow 4s ease-in-out infinite;
 }
 
-.hero h3 {
-    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
-    font-weight: 500;
-    color: var(--gray-600);
-    margin-bottom: var(--space-xl);
-    position: relative;
-}
-
-.hero h3::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -var(--space-sm);
-    width: 60px;
-    height: 3px;
-    background: var(--gradient-secondary);
-    border-radius: var(--radius-full);
-}
+/* Hero h3 styles removed - now using h1 and h2 structure */
 
 .hero p {
     font-size: 1.2rem;
     color: var(--gray-600);
     margin-bottom: var(--space-2xl);
-    line-height: 1.7;
-    max-width: none;
+}
+
+.hero p + p {
+    margin-top: var(--space-md);
+}
+
+/* Enhanced hero text spacing */
+.hero-text-section > * {
+    margin-bottom: var(--space-lg);
+}
+
+.hero-text-section > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Better visual hierarchy */
+.hero h1 + h2 {
+    margin-top: var(--space-sm);
+}
+
+.hero h2 + p {
+    margin-top: var(--space-lg);
 }
 
 .cta-buttons {
@@ -2758,10 +2806,7 @@ footer p:last-child {
         order: 1;
     }
     
-    .hero h3::before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
+    /* h3::before styles removed - using h1/h2 structure */
     
     .cta-buttons {
         justify-content: center;
@@ -2786,6 +2831,17 @@ footer p:last-child {
 
 /* Enhanced Mobile Navigation and Responsive Design */
 @media (max-width: 768px) {
+    /* Mobile small button optimization */
+    .btn-small {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .btn-small i {
+        font-size: 0.8rem !important;
+        margin-right: 0.4rem !important;
+    }
+    
     /* Better hamburger menu */
     .hamburger {
         display: flex;
@@ -2877,16 +2933,17 @@ footer p:last-child {
         padding: calc(var(--header-height) + 1rem) 0 2rem;
     }
     
-    .hero h2 {
+    .hero h1 {
         font-size: clamp(1.8rem, 8vw, 2.5rem);
         margin-bottom: 0.5rem;
     }
     
-    .hero h3 {
-        font-size: clamp(1rem, 5vw, 1.4rem);
-        margin-bottom: 1rem;
-        line-height: 1.4;
+    .hero h2 {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 0.75rem;
     }
+    
+    /* h3 styles removed - using h1/h2 structure */
     
     .hero p {
         font-size: clamp(0.9rem, 4vw, 1rem);
@@ -3001,13 +3058,15 @@ footer p:last-child {
         padding: calc(var(--header-height) + 0.5rem) 0 1.5rem;
     }
     
-    .hero h2 {
+    .hero h1 {
         font-size: clamp(1.5rem, 10vw, 2.2rem);
     }
     
-    .hero h3 {
-        font-size: clamp(0.9rem, 6vw, 1.2rem);
+    .hero h2 {
+        font-size: clamp(0.9rem, 5vw, 1.1rem);
     }
+    
+    /* h3 styles removed - using h1/h2 structure */
     
     .hero p {
         font-size: clamp(0.85rem, 4.5vw, 0.95rem);
@@ -3573,6 +3632,34 @@ footer p:last-child {
 .typewriter-container {
     display: inline-block;
     position: relative;
+    min-width: 300px;
+    height: 1.5em;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+/* Mobile optimization for typewriter */
+@media (max-width: 768px) {
+    .typewriter-container {
+        min-width: 250px;
+        max-width: 250px;
+        width: 250px;
+        height: 1.8em;
+        display: block;
+        margin: 0;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 480px) {
+    .typewriter-container {
+        min-width: 200px;
+        max-width: 200px;
+        width: 200px;
+        height: 2em;
+        overflow: visible;
+    }
 }
 
 #typewriter {
@@ -3582,6 +3669,149 @@ footer p:last-child {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-family: var(--font-mono);
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    max-width: 100%;
+    line-height: 1.4;
+    overflow: visible;
+}
+
+/* Mobile typography adjustments */
+@media (max-width: 768px) {
+    #typewriter {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    #typewriter {
+        font-size: 0.8em;
+        line-height: 1.4;
+    }
+}
+
+/* Hide scroll-to-top button on mobile for better performance */
+@media (max-width: 768px) {
+    .scroll-to-top {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    
+    /* Fixed navbar on mobile - no animations for better performance */
+    .navbar {
+        background: #ffffff !important;
+        backdrop-filter: none !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    /* COMPLETELY REMOVE ALL ANIMATIONS FROM MOBILE NAVIGATION */
+    .hamburger,
+    .hamburger *,
+    .hamburger::before,
+    .hamburger::after {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        -webkit-transition: none !important;
+        -webkit-animation: none !important;
+        -webkit-transform: none !important;
+    }
+    
+    .hamburger span,
+    .hamburger.active span,
+    .hamburger.active span:nth-child(1),
+    .hamburger.active span:nth-child(2),
+    .hamburger.active span:nth-child(3) {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        -webkit-transition: none !important;
+        -webkit-animation: none !important;
+        -webkit-transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    .hamburger:active,
+    .hamburger:hover,
+    .hamburger:focus {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        background-color: transparent !important;
+        scale: none !important;
+    }
+    
+    .nav-menu,
+    .nav-menu.active,
+    .nav-menu *,
+    .nav-menu::before,
+    .nav-menu::after {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        -webkit-transition: none !important;
+        -webkit-animation: none !important;
+        -webkit-transform: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #ffffff !important;
+    }
+    
+    .nav-menu a,
+    .nav-menu li,
+    .nav-menu a::before,
+    .nav-menu a::after {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        -webkit-transition: none !important;
+        -webkit-animation: none !important;
+        -webkit-transform: none !important;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a:active,
+    .nav-menu a:focus {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        background: rgba(46, 125, 50, 0.1) !important;
+        scale: none !important;
+    }
+    
+    /* Override keyframe animations specifically */
+    @keyframes slideInRight {
+        from, to { 
+            transform: none !important;
+            opacity: 1 !important;
+        }
+    }
+    
+    /* Global animation disable for mobile performance */
+    *, *::before, *::after {
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+    
+    /* Ensure navigation stays in place */
+    .nav-menu {
+        left: -100% !important;
+    }
+    
+    .nav-menu.active {
+        left: 0 !important;
+        transform: translateX(0) !important;
+        animation: none !important;
+    }
 }
 
 .cursor {
@@ -3593,6 +3823,8 @@ footer p:last-child {
     animation: blink 1s infinite;
     font-weight: 600;
     margin-left: 2px;
+    position: absolute;
+    top: 0;
 }
 
 @keyframes blink {
@@ -4455,16 +4687,19 @@ footer p:last-child {
         animation: mobilePhotoFloat 8s ease-in-out infinite 1s;
     }
     
-    .hero h2 {
+    .hero h1 {
         font-size: clamp(2.2rem, 8vw, 3rem);
         line-height: 1.1;
         animation: textReveal 1s ease-out 0.6s both;
     }
     
-    .hero h3 {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
+    .hero h2 {
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+        line-height: 1.2;
         animation: textReveal 1s ease-out 0.8s both;
     }
+    
+    /* h3 styles removed - using h1/h2 structure */
     
     .hero p {
         font-size: 1.1rem;
