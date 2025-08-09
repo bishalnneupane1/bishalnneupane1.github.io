@@ -1,0 +1,50 @@
+# Performance optimization headers for GitHub Pages
+
+/*
+  # Security headers
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Static assets - 1 year cache
+/*.css
+  Cache-Control: max-age=31536000, public
+  Content-Encoding: gzip
+
+/*.js
+  Cache-Control: max-age=31536000, public
+  Content-Encoding: gzip
+
+/*.jpg
+  Cache-Control: max-age=31536000, public
+
+/*.jpeg
+  Cache-Control: max-age=31536000, public
+
+/*.png
+  Cache-Control: max-age=31536000, public
+
+/*.gif
+  Cache-Control: max-age=31536000, public
+
+/*.svg
+  Cache-Control: max-age=31536000, public
+
+/*.ico
+  Cache-Control: max-age=31536000, public
+
+/*.woff
+  Cache-Control: max-age=31536000, public
+
+/*.woff2
+  Cache-Control: max-age=31536000, public
+
+# Documents - 1 month cache
+/*.pdf
+  Cache-Control: max-age=2628000, public
+
+# HTML files - 1 day cache
+/*.html
+  Cache-Control: max-age=86400, public, must-revalidate
+  Content-Encoding: gzip
