@@ -214,11 +214,10 @@ function startTypewriter() {
 
     const element = document.getElementById('typewriter');
     if (!element) {
-        console.error('❌ Typewriter element not found');
         return;
     }
 
-    console.log('✅ Starting typewriter animation');
+
 
     // Responsive text based on screen size
     const isMobileView = window.innerWidth <= 480;
@@ -294,7 +293,6 @@ function startTypewriter() {
 
 // Initialize typewriter and dynamic copyright year
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 DOM loaded - Starting typewriter...');
     startTypewriter();
 
     // Update copyright year dynamically
@@ -391,7 +389,6 @@ if ('ontouchstart' in window && window.innerWidth > 768) {
 
 // Global functions for manual control
 window.forceStartTypewriter = function () {
-    console.log('🆘 Manual typewriter start');
     startTypewriter();
 };
 

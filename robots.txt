@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://bishalnneupane1.github.io/sitemap.xml
+Sitemap: https://www.bishalnneupane.com.np/sitemap.xml
 
-# Disallow paths (if any)
-# Disallow: /private/
+# Host
+Host: https://www.bishalnneupane.com.np

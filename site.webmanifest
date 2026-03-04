@@ -1,22 +1,35 @@
 {
-    "name": "Bishal Nneupane - Precision Agriculture Specialist",
+    "name": "Bishal Nneupane – Precision Agriculture & Remote Sensing Expert",
     "short_name": "Bishal Nneupane",
-    "description": "Expert in Remote Sensing, GIS, Google Earth Engine, and Agricultural Data Science",
+    "description": "Precision Agriculture Specialist & Remote Sensing Expert from Nepal. Google Earth Engine developer and agricultural data scientist.",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
+            "src": "/favicon-32x32.png",
+            "sizes": "32x32",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/favicon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "apple touch icon"
         }
     ],
     "theme_color": "#6366F1",
-    "background_color": "#ffffff",
+    "background_color": "#0f0f23",
     "display": "standalone",
-    "start_url": "/",
-    "scope": "/"
+    "start_url": "https://www.bishalnneupane.com.np/",
+    "scope": "https://www.bishalnneupane.com.np/",
+    "id": "https://www.bishalnneupane.com.np/",
+    "lang": "en",
+    "categories": [
+        "portfolio",
+        "agriculture",
+        "technology"
+    ]
 }
