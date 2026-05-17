@@ -1,0 +1,8 @@
+# Claude Code / agent tooling
+.agents/
+.claude/
+skills-lock.json
+
+# Local debug / scratch
+check.html
+.tmp_*
