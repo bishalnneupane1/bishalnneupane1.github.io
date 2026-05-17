@@ -8,6 +8,16 @@ window.addEventListener('load', () => {
     }
 });
 
+// Sync --header-height CSS variable so the mobile nav menu top aligns exactly with the header
+const headerEl = document.querySelector('header');
+function syncHeaderHeight() {
+    if (headerEl) {
+        document.documentElement.style.setProperty('--header-height', headerEl.getBoundingClientRect().height + 'px');
+    }
+}
+syncHeaderHeight();
+window.addEventListener('resize', syncHeaderHeight, { passive: true });
+
 // Enhanced Mobile Navigation Toggle - Clean Version
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -16,25 +26,20 @@ const navbar = document.querySelector('.navbar');
 
 // Toggle mobile navigation
 function toggleMobileNav() {
-    const isActive = hamburger.classList.contains('active');
+    syncHeaderHeight();
+    const willOpen = !navMenu.classList.contains('active');
 
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    body.classList.toggle('nav-open');
+    hamburger.classList.toggle('active', willOpen);
+    navMenu.classList.toggle('active', willOpen);
+    body.classList.toggle('nav-open', willOpen);
 
-    // Add haptic feedback on mobile
-    if ('vibrate' in navigator && !isActive) {
-        navigator.vibrate(50);
-    }
+    hamburger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    navMenu.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
 
-    // Prevent background scroll
-    if (!isActive) {
-        body.style.overflow = 'hidden';
-        body.style.touchAction = 'none';
-    } else {
-        body.style.overflow = '';
-        body.style.touchAction = '';
-    }
+    if (willOpen && 'vibrate' in navigator) navigator.vibrate(50);
+
+    body.style.overflow = willOpen ? 'hidden' : '';
+    body.style.touchAction = willOpen ? 'none' : '';
 }
 
 // Close mobile navigation
@@ -44,7 +49,16 @@ function closeMobileNav() {
     body.classList.remove('nav-open');
     body.style.overflow = '';
     body.style.touchAction = '';
+    hamburger.setAttribute('aria-expanded', 'false');
+    navMenu.setAttribute('aria-hidden', 'true');
 }
+
+// Reset state when resizing to desktop so the menu doesn't get stuck.
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 1080 && navMenu.classList.contains('active')) {
+        closeMobileNav();
+    }
+}, { passive: true });
 
 // Enhanced touch event handling
 if (hamburger) {
@@ -123,12 +137,8 @@ function handleNavbarScroll() {
 
     requestAnimationFrame(() => {
         if (currentScrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            navbar.style.boxShadow = '0 1px 0 rgba(74,58,36,0.12), 0 18px 30px -24px rgba(45,33,15,0.35)';
         } else {
-            navbar.style.background = '#ffffff';
-            navbar.style.backdropFilter = 'none';
             navbar.style.boxShadow = 'none';
         }
     });

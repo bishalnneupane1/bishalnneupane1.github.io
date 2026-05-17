@@ -26,7 +26,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-    <meta name="theme-color" content="#6366F1">
+    <meta name="theme-color" content="#4a5d3a">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -75,11 +75,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="style.min.css" as="style">
+    <link rel="preload" href="style.css" as="style">
     <link rel="preload" href="script.js" as="script">
     <link rel="preload" href="bishal_neupane.jpg" as="image">
 
@@ -353,13 +353,14 @@
                     <li><a href="#experience" title="Professional Experience in Agriculture & GIS">Experience</a></li>
                     <li><a href="#projects" title="Data Science & Agricultural Research Projects">Projects</a></li>
                     <li><a href="#blog" title="Articles & Insights on Agriculture & Technology">Blog</a></li>
+                    <li><a href="#publications" title="Research Manuscripts Under Review">Publications</a></li>
                     <li><a href="#certifications" title="Professional Certifications & Awards">Certifications</a></li>
                     <li><a href="#involvement" title="Agricultural Organizations & Leadership">Involvement</a></li>
                     <li><a href="#resume" title="Download Professional Resume - Agriculture Specialist">Resume</a></li>
                     <li><a href="#contact"
                             title="Contact for Agricultural Consulting & Remote Sensing Services">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -376,7 +377,7 @@
                         <div class="hero-text-section">
                             <h1>Bishal Nneupane – Precision Agriculture Specialist, Nepal</h1>
                             <h2>Expert Remote Sensing & GIS Professional | Agricultural Data Scientist | Google Earth
-                                Engine Specialist 🇳🇵</h2>
+                                Engine Specialist</h2>
                             <p>Professional Precision Agriculture Specialist and BSc. Agriculture student from Nepal,
                                 expertly skilled in <span class="typewriter-container"><span
                                         id="typewriter"></span><span class="cursor">|</span></span>.</p>
@@ -390,7 +391,7 @@
                             <div class="cta-buttons">
                                 <a href="#about" class="btn btn-primary">Discover More</a>
                                 <a href="#contact" class="btn btn-secondary">Connect With Me</a>
-                                <a href="Bishal_Neupane_Resume.pdf" download class="btn btn-accent">
+                                <a href="Bishal_Neupane_agriculture_cv.pdf" download class="btn btn-accent">
                                     <i class="fas fa-download"></i> Download Resume
                                 </a>
                             </div>
@@ -409,44 +410,62 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-decoration">
-                    <div class="floating-element element-1"></div>
-                    <div class="floating-element element-2"></div>
-                    <div class="floating-element element-3"></div>
-                    <!-- Modern geometric shapes -->
-                    <div class="geometric-shape shape-1">
-                        <svg width="60" height="60" viewBox="0 0 60 60">
-                            <polygon points="30,5 55,25 45,50 15,50 5,25" fill="url(#gradient1)" opacity="0.6" />
-                            <defs>
-                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#6366F1" />
-                                    <stop offset="100%" style="stop-color:#06B6D4" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="geometric-shape shape-2">
-                        <svg width="40" height="40" viewBox="0 0 40 40">
-                            <circle cx="20" cy="20" r="15" fill="url(#gradient2)" opacity="0.4" />
-                            <defs>
-                                <radialGradient id="gradient2">
-                                    <stop offset="0%" style="stop-color:#F59E0B" />
-                                    <stop offset="100%" style="stop-color:#EC4899" />
-                                </radialGradient>
-                            </defs>
-                        </svg>
-                    </div>
-                    <div class="geometric-shape shape-3">
-                        <svg width="50" height="50" viewBox="0 0 50 50">
-                            <rect x="10" y="10" width="30" height="30" rx="5" fill="url(#gradient3)" opacity="0.5" />
-                            <defs>
-                                <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" style="stop-color:#8B5CF6" />
-                                    <stop offset="100%" style="stop-color:#06B6D4" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
+                <div class="hero-decoration" aria-hidden="true">
+                    <!-- Contour lines: rice terraces from above -->
+                    <svg class="hero-contour" viewBox="0 0 1200 600" preserveAspectRatio="none">
+                        <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.55">
+                            <path d="M-20,140 C220,80 420,180 660,140 C880,100 1040,170 1240,120"/>
+                            <path d="M-20,200 C260,150 460,240 700,200 C920,165 1060,225 1240,185"/>
+                            <path d="M-20,265 C280,220 500,310 740,270 C960,235 1080,290 1240,250"/>
+                            <path d="M-20,335 C300,290 540,380 780,340 C1000,305 1100,360 1240,320"/>
+                            <path d="M-20,410 C320,370 580,455 820,420 C1040,385 1130,440 1240,400"/>
+                            <path d="M-20,490 C340,455 620,535 860,500 C1080,470 1160,520 1240,485"/>
+                        </g>
+                    </svg>
+                    <!-- Hand-drawn botanical sprig: top-left -->
+                    <svg class="botanical botanical-sprig sprig-1" viewBox="0 0 120 160" aria-hidden="true">
+                        <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M60,155 C58,120 64,90 56,55 C52,38 58,22 60,8"/>
+                            <path d="M60,130 C40,118 26,110 18,92" />
+                            <ellipse cx="22" cy="92" rx="12" ry="5" transform="rotate(-30 22 92)"/>
+                            <path d="M60,105 C82,95 96,86 104,70"/>
+                            <ellipse cx="100" cy="70" rx="13" ry="5.5" transform="rotate(28 100 70)"/>
+                            <path d="M60,80 C42,68 32,58 24,40"/>
+                            <ellipse cx="28" cy="40" rx="11" ry="4.5" transform="rotate(-40 28 40)"/>
+                            <path d="M60,55 C76,46 88,38 94,22"/>
+                            <ellipse cx="90" cy="22" rx="10" ry="4" transform="rotate(35 90 22)"/>
+                        </g>
+                    </svg>
+                    <!-- Hand-drawn fern frond: bottom-right -->
+                    <svg class="botanical botanical-fern sprig-2" viewBox="0 0 140 180" aria-hidden="true">
+                        <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20,175 C30,140 48,110 68,82 C86,56 102,32 130,12"/>
+                            <path d="M40,140 C32,148 28,156 26,164" />
+                            <path d="M48,130 C42,138 38,144 36,150" />
+                            <path d="M58,115 C50,121 46,128 44,134" />
+                            <path d="M66,102 C58,108 54,114 52,118" />
+                            <path d="M76,88 C68,92 64,98 62,102" />
+                            <path d="M86,72 C78,76 74,82 72,86" />
+                            <path d="M96,58 C88,62 84,66 82,70" />
+                            <path d="M106,44 C98,48 94,52 92,55" />
+                            <path d="M48,132 C58,128 64,123 68,116" />
+                            <path d="M58,116 C68,112 74,107 78,100" />
+                            <path d="M68,100 C78,96 84,91 88,84" />
+                            <path d="M78,84 C88,80 93,75 96,70" />
+                            <path d="M88,68 C96,65 102,60 104,55" />
+                        </g>
+                    </svg>
+                    <!-- Drifting seedling -->
+                    <svg class="botanical botanical-seed sprig-3" viewBox="0 0 80 80" aria-hidden="true">
+                        <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M40,72 C40,55 40,42 40,28"/>
+                            <path d="M40,42 C28,38 22,30 22,18"/>
+                            <ellipse cx="26" cy="22" rx="10" ry="4" transform="rotate(-32 26 22)"/>
+                            <path d="M40,42 C52,38 58,30 58,18"/>
+                            <ellipse cx="54" cy="22" rx="10" ry="4" transform="rotate(32 54 22)"/>
+                            <path d="M30,72 C36,70 44,70 50,72"/>
+                        </g>
+                    </svg>
                 </div>
             </div>
             </div>
@@ -603,7 +622,7 @@
 
         <section id="agriculture-showcase" class="agriculture-showcase">
             <div class="container">
-                <h2>🍃 Professional Agriculture Technology & AI Innovation Portfolio</h2>
+                <h2>Professional Agriculture Technology &amp; AI Innovation Portfolio</h2>
                 <p class="section-intro">Advanced real-world applications of satellite remote sensing, GIS analysis,
                     Google Earth Engine programming, AI-powered trading systems, and agricultural data science for
                     sustainable farming solutions, financial technology, and community building in Nepal and South Asia
@@ -614,7 +633,7 @@
                         <div class="showcase-icon">
                             <i class="fas fa-satellite"></i>
                         </div>
-                        <h3>Precision Ag in Kaski, Nepal 🇳🇵</h3>
+                        <h3>Precision Ag in Kaski, Nepal</h3>
                         <p>Used Google Earth Engine to build dry- and wet-season Sentinel-2 composites and derive five
                             key indices—NDVI, NDWI, SAVI, GCI & PSRI—then applied K-Means clustering for six land-cover
                             classes with pixel-level precision.</p>
@@ -655,7 +674,7 @@
                         <div class="showcase-icon">
                             <i class="fas fa-globe-asia"></i>
                         </div>
-                        <h3>Google Earth Engine Mastery 🌍</h3>
+                        <h3>Google Earth Engine Mastery</h3>
                         <p>Completed End-to-End Google Earth Engine course, mastering global geospatial datasets,
                             dynamic mapping, and remote sensing analyses. Generated high-res watershed maps and
                             classified land-cover maps of Nepal.</p>
@@ -691,7 +710,7 @@
                         <div class="showcase-icon">
                             <i class="fab fa-r-project"></i>
                         </div>
-                        <h3>R Programming for Research 📊</h3>
+                        <h3>R Programming for Research</h3>
                         <p>Mastered Research Data Analysis with R in 7 days - from messy spreadsheets to
                             publication-ready insights. Advanced statistical analysis, ggplot2 visualizations, PCA, and
                             R Markdown reporting for agricultural research.</p>
@@ -730,7 +749,7 @@
                         <div class="showcase-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3>NEPSE AI Trading Platform 📈</h3>
+                        <h3>NEPSE AI Trading Platform</h3>
                         <p>Advanced AI-powered trading platform for Nepal Stock Exchange with comprehensive portfolio
                             management, intelligent stock analysis, and complete trading automation. Features real-time
                             data from 240+ stocks, AI-powered recommendations using Google Gemini, and advanced
@@ -750,10 +769,10 @@
                         <div class="showcase-demo">
                             <div class="demo-ai-system">
                                 <div class="ai-components">
-                                    <div class="component" data-type="trading">📈 Stock Analysis</div>
-                                    <div class="component" data-type="content">💼 Portfolio Mgmt</div>
-                                    <div class="component" data-type="analysis">🚨 Price Alerts</div>
-                                    <div class="component" data-type="automation">📧 AI Reports</div>
+                                    <div class="component" data-type="trading"><i class="fas fa-chart-line"></i> Stock Analysis</div>
+                                    <div class="component" data-type="content"><i class="fas fa-briefcase"></i> Portfolio Mgmt</div>
+                                    <div class="component" data-type="analysis"><i class="fas fa-bell"></i> Price Alerts</div>
+                                    <div class="component" data-type="automation"><i class="fas fa-paper-plane"></i> AI Reports</div>
                                 </div>
                                 <div class="ai-metrics">
                                     <span class="metric">240+ NEPSE Stocks</span>
@@ -767,7 +786,7 @@
                 <!-- Featured Project Highlight -->
                 <div class="featured-project">
                     <div class="project-header">
-                        <h3>🔍 Featured: NDWI Analysis for Pokhara Lekhnath</h3>
+                        <h3>Featured: NDWI Analysis for Pokhara Lekhnath</h3>
                         <p>Tracking water presence and environmental changes using satellite imagery</p>
                         <div class="project-link" style="margin-top: var(--space-md);">
                             <a href="https://www.linkedin.com/posts/bishalnneupane_this-chart-might-look-simple-but-for-activity-7320496022374260736-mZ7S?utm_source=share&utm_medium=member_desktop&rcm=ACoAADW0rlUBN76B5N8i59UNKZGZ-32SU0aw2es"
@@ -778,17 +797,17 @@
                     </div>
                     <div class="project-insights">
                         <div class="insight-card">
-                            <div class="insight-icon">📈</div>
+                            <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
                             <h4>Seasonal Patterns</h4>
                             <p>Identified seasonal pulses of water presence and persistent negative NDWI patterns</p>
                         </div>
                         <div class="insight-card">
-                            <div class="insight-icon">🛰️</div>
+                            <div class="insight-icon"><i class="fas fa-satellite"></i></div>
                             <h4>Satellite Mapping</h4>
                             <p>Generated visual maps making invisible water body changes visible for decision-makers</p>
                         </div>
                         <div class="insight-card">
-                            <div class="insight-icon">🌊</div>
+                            <div class="insight-icon"><i class="fas fa-water"></i></div>
                             <h4>Conservation Impact</h4>
                             <p>Supporting urban resilience, sustainable tourism, and environmental conservation efforts
                             </p>
@@ -1008,7 +1027,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">Aug 2024 - Present</div>
                         <div class="timeline-content">
-                            <h3>AI/FinTech Developer & Content Technology Specialist 🚀</h3>
+                            <h3>AI/FinTech Developer &amp; Content Technology Specialist</h3>
                             <p class="institution">Independent Projects & Freelance Development</p>
                             <p><em>"Building the Future with AI"</em> - Advanced development work in AI-powered
                                 applications, financial technology, and content generation systems</p>
@@ -1042,7 +1061,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">Jan 28, 2025 - Jul 15, 2025</div>
                         <div class="timeline-content">
-                            <h3>Agricultural Research Intern 🌾</h3>
+                            <h3>Agricultural Research Intern</h3>
                             <p class="institution">PMAMP Morang (Prime Minister Agriculture Modernization Project)</p>
                             <p><em>"From Dirt to Data"</em> - 5-month intensive agricultural research internship
                                 focusing on plant hormone effects on crop yield</p>
@@ -1126,7 +1145,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">2025</div>
                         <div class="timeline-content">
-                            <h3>🚀 LinkedIn SEO Content Generator</h3>
+                            <h3>LinkedIn SEO Content Generator</h3>
                             <p class="project-type">AI · Content Generation · SEO · Web Application</p>
                             <p>A sophisticated AI-powered web application that generates high-engagement, SEO-optimized
                                 LinkedIn posts using Google's Gemini AI. Features viral content analysis, 100% success
@@ -1164,7 +1183,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">2025</div>
                         <div class="timeline-content">
-                            <h3>📈 NEPSE AI Trading Platform</h3>
+                            <h3>NEPSE AI Trading Platform</h3>
                             <p class="project-type">AI · FinTech · Trading · WebSocket · Portfolio Management</p>
                             <p>An advanced AI-powered trading platform for Nepal Stock Exchange with comprehensive
                                 portfolio management, intelligent stock analysis, and complete trading automation.
@@ -1201,7 +1220,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">2025</div>
                         <div class="timeline-content">
-                            <h3>📊 Nepal Buy/Sell Trading System v4.3</h3>
+                            <h3>Nepal Buy/Sell Trading System v4.3</h3>
                             <p class="project-type">Google Apps Script · Automation · Trading Signals · Email Reports
                             </p>
                             <p>A comprehensive Google Apps Script system for analyzing Nepal Stock Exchange data with
@@ -1239,7 +1258,7 @@
                     <div class="timeline-item">
                         <div class="timeline-date">2025</div>
                         <div class="timeline-content">
-                            <h3>🌱 GAVS Puranchaur Website</h3>
+                            <h3>GAVS Puranchaur Website</h3>
                             <p class="project-type">Django · Web Development · CMS · NGO Platform</p>
                             <p>A modern, fully-featured Django website for the Group Of Agriculture and Veterinary
                                 Students (GAVS) Puranchaur organization. Built with agriculture-themed modern design,
@@ -1351,25 +1370,48 @@
 
         <section id="blog" class="blog">
             <div class="container">
-                <h2>📝 Blog & Articles</h2>
+                <h2>Blog &amp; Articles</h2>
                 <p class="section-intro">Insights, tutorials, and thought leadership on precision agriculture, remote
                     sensing, AI technology, and data science from my professional journey</p>
 
                 <div class="blog-grid">
                     <article class="blog-card">
                         <div class="blog-icon">
-                            <i class="fas fa-satellite"></i>
+                            <i class="fas fa-bullseye"></i>
                         </div>
                         <div class="blog-content">
-                            <span class="blog-category">Remote Sensing</span>
-                            <h3>Precision Agriculture in Kaski, Nepal</h3>
-                            <p>How I used Google Earth Engine to build dry- and wet-season Sentinel-2 composites and
-                                derive five key indices—NDVI, NDWI, SAVI, GCI & PSRI—for land-cover classification.</p>
+                            <span class="blog-category">Research Career</span>
+                            <h3>Building a Research Portfolio Without Grants or MS Backing</h3>
+                            <p>I'm a student in Nepal with no MS, no research grant, and no institutional backing.
+                                Here's exactly how I'm positioning myself anyway — through Google Earth Engine,
+                                field experiments, applied ML, and public documentation. A specific problem is more
+                                credible than a general skillset.</p>
                             <div class="blog-meta">
-                                <span><i class="far fa-calendar"></i> 2025</span>
+                                <span><i class="far fa-calendar"></i> 2026</span>
+                                <span><i class="far fa-clock"></i> 4 min read</span>
+                            </div>
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_opentowork-researchopportunities-agritech-activity-7447274636175826944-Owc4"
+                                target="_blank" rel="noopener" class="blog-link">
+                                Read on LinkedIn <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-category">Career &amp; Research</span>
+                            <h3>From Rice Fields to Research: Building a Career in Precision Agriculture</h3>
+                            <p>A year ago, I was counting tillers in a rice field. Today, I have 8 manuscripts under
+                                review, analyze farmland from space using Sentinel-2 imagery, and build ML models to
+                                predict crop yield. The path forward is built one uncomfortable step at a time.</p>
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> 2026</span>
                                 <span><i class="far fa-clock"></i> 5 min read</span>
                             </div>
-                            <a href="https://www.linkedin.com/posts/bishalnneupane_precisionag-remotesensing-googleearthengine-activity-7345077332799361024-J8mO"
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_a-year-ago-i-was-counting-tillers-in-a-rice-activity-7458510892612104192-jumJ"
                                 target="_blank" rel="noopener" class="blog-link">
                                 Read on LinkedIn <i class="fas fa-arrow-right"></i>
                             </a>
@@ -1378,38 +1420,19 @@
 
                     <article class="blog-card">
                         <div class="blog-icon">
-                            <i class="fas fa-globe-asia"></i>
+                            <i class="fas fa-layer-group"></i>
                         </div>
                         <div class="blog-content">
-                            <span class="blog-category">Google Earth Engine</span>
-                            <h3>Mastering End-to-End Earth Engine</h3>
-                            <p>My journey completing the comprehensive Google Earth Engine course - from global
-                                geospatial datasets to dynamic mapping and watershed analysis for Nepal.</p>
+                            <span class="blog-category">Technical Stack</span>
+                            <h3>GIS, Remote Sensing, and ML — a System, Not a Stack</h3>
+                            <p>I learned GIS. Then remote sensing. Then machine learning. Each step felt like
+                                starting over. But now I see them as one system — and the moment I stopped learning
+                                them separately, everything accelerated.</p>
                             <div class="blog-meta">
-                                <span><i class="far fa-calendar"></i> 2025</span>
-                                <span><i class="far fa-clock"></i> 4 min read</span>
-                            </div>
-                            <a href="https://www.linkedin.com/posts/bishalnneupane_googleearthengine-gis-remotesensing-activity-7328753979419475968-7goJ"
-                                target="_blank" rel="noopener" class="blog-link">
-                                Read on LinkedIn <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-icon">
-                            <i class="fab fa-r-project"></i>
-                        </div>
-                        <div class="blog-content">
-                            <span class="blog-category">Data Science</span>
-                            <h3>Research Data Analysis with R in 7 Days</h3>
-                            <p>From messy spreadsheets to publication-ready insights - mastering statistical analysis,
-                                ggplot2 visualizations, PCA, and R Markdown for agricultural research.</p>
-                            <div class="blog-meta">
-                                <span><i class="far fa-calendar"></i> 2025</span>
+                                <span><i class="far fa-calendar"></i> 2026</span>
                                 <span><i class="far fa-clock"></i> 3 min read</span>
                             </div>
-                            <a href="https://www.linkedin.com/posts/bishalnneupane_rstats-rprogramming-scientificresearch-activity-7317535873472897025-ustq"
+                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7458146139859484673/"
                                 target="_blank" rel="noopener" class="blog-link">
                                 Read on LinkedIn <i class="fas fa-arrow-right"></i>
                             </a>
@@ -1418,18 +1441,19 @@
 
                     <article class="blog-card">
                         <div class="blog-icon">
-                            <i class="fas fa-water"></i>
+                            <i class="fas fa-network-wired"></i>
                         </div>
                         <div class="blog-content">
-                            <span class="blog-category">Environmental Analysis</span>
-                            <h3>NDWI Analysis for Pokhara Lekhnath</h3>
-                            <p>Tracking water presence and environmental changes using satellite imagery - supporting
-                                urban resilience, sustainable tourism, and conservation efforts.</p>
+                            <span class="blog-category">Precision Agriculture</span>
+                            <h3>Combining GIS, Remote Sensing, and ML for Earth Data</h3>
+                            <p>GIS gave me spatial thinking. Remote sensing gave me field-scale visibility. ML gave
+                                me predictive power. For agriculture, the real power is in combining all three —
+                                not treating them as separate skills.</p>
                             <div class="blog-meta">
-                                <span><i class="far fa-calendar"></i> 2025</span>
-                                <span><i class="far fa-clock"></i> 4 min read</span>
+                                <span><i class="far fa-calendar"></i> 2026</span>
+                                <span><i class="far fa-clock"></i> 3 min read</span>
                             </div>
-                            <a href="https://www.linkedin.com/posts/bishalnneupane_this-chart-might-look-simple-but-for-activity-7320496022374260736-mZ7S"
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_remotesensing-gis-machinelearning-activity-7445824970854854656-2ByJ"
                                 target="_blank" rel="noopener" class="blog-link">
                                 Read on LinkedIn <i class="fas fa-arrow-right"></i>
                             </a>
@@ -1446,10 +1470,64 @@
             </div>
         </section>
 
+        <section id="publications" class="certifications">
+            <div class="container">
+                <h2>Research &amp; Publications</h2>
+                <p style="text-align: center; max-width: 760px; margin: 0 auto var(--space-2xl); color: var(--gray-600);">
+                    Manuscripts Under Review (2025&ndash;2026) &middot; <strong>First Author &amp; Corresponding Author</strong>
+                </p>
+                <div class="certifications-grid">
+                    <div class="certification-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Effect of plant growth regulators (NAA &amp; GA<sub>3</sub>) on growth, flowering, and yield of okra (<em>Abelmoschus esculentus</em>)</h3>
+                        <p class="issuer">Under review &middot; TURJAF</p>
+                        <p>Turkish Journal of Agriculture and Food Science. Field study at Katahari, Morang, Nepal.</p>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <h3>Pesticide use patterns and IPM adoption among vegetable farmers and retailers in Bhairahawa, Nepal: retailers as de facto extension agents</h3>
+                        <p class="issuer">Under review &middot; JARTS (Scopus Q3)</p>
+                        <p>Journal of Agriculture and Rural Development in the Tropics and Subtropics.</p>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3>Status, challenges, and pathways toward sustainable rice mechanization in Nepal: a systematic review</h3>
+                        <p class="issuer">Under review &middot; TRAB</p>
+                        <p>Tropical Agrobiodiversity.</p>
+                    </div>
+                    <div class="certification-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Integrated nutrient management effects on growth and yield of spring maize</h3>
+                        <p class="issuer">Under review &middot; ASoN</p>
+                        <p>Agronomy Journal of Nepal. Field study in Inner Terai, Dang, Nepal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="certifications" class="certifications">
             <div class="container">
-                <h2>Certifications & Awards</h2>
+                <h2>Certifications &amp; Awards</h2>
                 <div class="certifications-grid">
+                    <div class="certification-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <h3>DSSAT v4.8.5 Crop Simulation Modeling</h3>
+                        <p class="issuer">NAXA Nepal &middot; February 2025</p>
+                        <p>Training in CROPGRO and CERES crop modules, genetic coefficient calibration for local varieties, simulation of climate&ndash;crop interactions and environmental stress responses, model validation against field experimental data, and integration of DSSAT outputs with the R statistical pipeline (tidyverse, agricolae) for ANOVA and variance analysis. Applied in crop physiology research and climate scenario analysis for Nepal&rsquo;s subtropical terai conditions.</p>
+                        <a href="Bishal_Neupane_DSSAT_certificate.pdf" target="_blank" rel="noopener" class="btn btn-small btn-primary" style="margin-top: var(--space-md);">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
                     <div class="certification-card">
                         <div class="cert-icon">
                             <i class="fas fa-certificate"></i>
@@ -1559,10 +1637,10 @@
                             </div>
                         </div>
                         <div class="resume-actions">
-                            <a href="Bishal_Neupane_Resume.pdf" download class="btn btn-primary resume-download">
+                            <a href="Bishal_Neupane_agriculture_cv.pdf" download class="btn btn-primary resume-download">
                                 <i class="fas fa-download"></i> Download PDF
                             </a>
-                            <a href="Bishal_Neupane_Resume.pdf" target="_blank"
+                            <a href="Bishal_Neupane_agriculture_cv.pdf" target="_blank"
                                 class="btn btn-secondary resume-preview">
                                 <i class="fas fa-eye"></i> Preview
                             </a>
@@ -1671,7 +1749,6 @@
     <footer>
         <div class="container">
             <p>&copy; <span id="copyright-year">2026</span> Bishal Nneupane. All rights reserved.</p>
-            <p>Made with ❤️ in Nepal</p>
         </div>
     </footer>
 
