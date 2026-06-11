@@ -137,7 +137,7 @@ function handleNavbarScroll() {
 
     requestAnimationFrame(() => {
         if (currentScrollY > 50) {
-            navbar.style.boxShadow = '0 1px 0 rgba(74,58,36,0.12), 0 18px 30px -24px rgba(45,33,15,0.35)';
+            navbar.style.boxShadow = '0 14px 28px -22px rgba(23,28,19,0.35)';
         } else {
             navbar.style.boxShadow = 'none';
         }
@@ -193,9 +193,6 @@ const enhancedObserver = new IntersectionObserver((entries) => {
 
                 if (entry.target.classList.contains('timeline-item')) {
                     entry.target.style.transform = 'translateX(0) rotateY(0deg)';
-                    if (!isMobile) {
-                        entry.target.style.boxShadow = '0 20px 60px rgba(46, 125, 50, 0.15)';
-                    }
                 }
             });
         }
@@ -234,32 +231,32 @@ function startTypewriter() {
     const isTabletView = window.innerWidth <= 768;
 
     const skills = isMobileView ? [
-        'Remote Sensing 🛰️',
-        'Earth Engine 🌍',
-        'Python & R 📊',
-        'Agri Data Science 🌾',
-        'Satellite Analysis 📈',
-        'GIS Mapping 🗺️',
-        'NDVI Monitor 💧',
-        'Precision Agri 🚜'
+        'remote sensing',
+        'earth engine',
+        'python & r',
+        'agri data science',
+        'satellite analysis',
+        'gis mapping',
+        'ndvi monitoring',
+        'precision agriculture'
     ] : isTabletView ? [
-        'Remote Sensing & GIS 🛰️',
-        'Google Earth Engine 🌍',
-        'Python & R Code 📊',
-        'Agricultural Data 🌾',
-        'Satellite Analysis 📈',
-        'Geospatial Maps 🗺️',
-        'NDVI Monitoring 💧',
-        'Precision Farming 🚜'
+        'remote sensing & gis',
+        'google earth engine',
+        'python & r code',
+        'agricultural data',
+        'satellite analysis',
+        'geospatial mapping',
+        'ndvi monitoring',
+        'precision farming'
     ] : [
-        'Remote Sensing & GIS 🛰️',
-        'Google Earth Engine 🌍',
-        'Python & R Programming 📊',
-        'Agricultural Data Science 🌾',
-        'Satellite Analysis 📈',
-        'Geospatial Mapping 🗺️',
-        'NDVI Monitoring 💧',
-        'Precision Agriculture 🚜'
+        'remote sensing & gis',
+        'google earth engine',
+        'python & r programming',
+        'agricultural data science',
+        'sentinel-2 imagery',
+        'geospatial mapping',
+        'ndvi monitoring',
+        'precision agriculture'
     ];
 
     let skillIndex = 0;
@@ -321,19 +318,18 @@ scrollToTopBtn.style.cssText = `
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: var(--primary, #2E7D32);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 16px;
+    background: var(--surface, #fdfdfa);
+    color: var(--accent, #447513);
+    border: 1px solid var(--line-strong, rgba(24, 32, 20, 0.32));
+    border-radius: 0;
+    width: 46px;
+    height: 46px;
+    font-size: 14px;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
