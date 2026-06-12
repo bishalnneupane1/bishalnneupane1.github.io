@@ -1387,23 +1387,6 @@ footer p {
   .timeline-content { padding: 1.2rem; }
 }
 
-/* ---------- SKIP LINK (a11y) ---------- */
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 1rem;
-  z-index: 2000;
-  padding: 0.6rem 1.1rem;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  text-decoration: none;
-  border: 1px solid var(--line-strong);
-}
-.skip-link:focus {
-  top: 0.6rem;
-}
 
 /* ---------- SCROLL TO TOP BUTTON ---------- */
 .scroll-to-top {
