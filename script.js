@@ -1,13 +1,3 @@
-// Hide preloader when page loads
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 500);
-    }
-});
-
 // Sync --header-height CSS variable so the mobile nav menu top aligns exactly with the header
 const headerEl = document.querySelector('header');
 function syncHeaderHeight() {
@@ -22,7 +12,6 @@ window.addEventListener('resize', syncHeaderHeight, { passive: true });
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const body = document.body;
-const navbar = document.querySelector('.navbar');
 
 // Toggle mobile navigation
 function toggleMobileNav() {
@@ -212,19 +201,17 @@ document.querySelectorAll('.showcase-item, .skill-category, .timeline-item, .sta
     enhancedObserver.observe(el);
 });
 
-// TYPEWRITER ANIMATION - WORKING VERSION
-let typewriterInterval;
+// TYPEWRITER ANIMATION
+let typewriterTimeout;
 function startTypewriter() {
-    if (typewriterInterval) {
-        clearInterval(typewriterInterval);
+    if (typewriterTimeout) {
+        clearTimeout(typewriterTimeout);
     }
 
     const element = document.getElementById('typewriter');
     if (!element) {
         return;
     }
-
-
 
     // Responsive text based on screen size
     const isMobileView = window.innerWidth <= 480;
@@ -259,43 +246,51 @@ function startTypewriter() {
         'precision agriculture'
     ];
 
+    const TYPE_DELAY = isMobileView ? 60 : 80;
+    const DELETE_DELAY = isMobileView ? 25 : 30;
+    const HOLD_DELAY = 2000; // pause on the full word before deleting
+    const NEXT_WORD_DELAY = 400; // brief pause before typing the next word
+
     let skillIndex = 0;
     let currentSkill = skills[skillIndex];
     let isDeleting = false;
     let charIndex = 0;
 
-    typewriterInterval = setInterval(() => {
+    function tick() {
         const cursor = document.querySelector('.cursor');
+        let delay;
 
         if (isDeleting) {
-            element.textContent = currentSkill.substring(0, charIndex - 1);
             charIndex--;
-
-            // Position cursor at the end of current text
-            if (cursor) {
-                cursor.style.left = `${element.offsetWidth}px`;
-            }
+            element.textContent = currentSkill.substring(0, charIndex);
+            delay = DELETE_DELAY;
 
             if (charIndex === 0) {
                 isDeleting = false;
                 skillIndex = (skillIndex + 1) % skills.length;
                 currentSkill = skills[skillIndex];
+                delay = NEXT_WORD_DELAY;
             }
         } else {
-            element.textContent = currentSkill.substring(0, charIndex + 1);
             charIndex++;
+            element.textContent = currentSkill.substring(0, charIndex);
+            delay = TYPE_DELAY;
 
-            // Position cursor at the end of current text
-            if (cursor) {
-                cursor.style.left = `${element.offsetWidth}px`;
-            }
-
-            if (charIndex === currentSkill.length + 1) {
+            if (charIndex === currentSkill.length) {
                 isDeleting = true;
-                setTimeout(() => { }, 2000);
+                delay = HOLD_DELAY;
             }
         }
-    }, isDeleting ? (isMobileView ? 25 : 30) : (isMobileView ? 60 : 80));
+
+        // Position cursor at the end of current text
+        if (cursor) {
+            cursor.style.left = `${element.offsetWidth}px`;
+        }
+
+        typewriterTimeout = setTimeout(tick, delay);
+    }
+
+    tick();
 }
 
 // Initialize typewriter and dynamic copyright year
@@ -309,50 +304,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Scroll to top button
+// Scroll to top button (styled via .scroll-to-top in style.css)
+const SCROLL_TOP_THRESHOLD = 300;
+
 const scrollToTopBtn = document.createElement('button');
 scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
 scrollToTopBtn.className = 'scroll-to-top';
 scrollToTopBtn.setAttribute('aria-label', 'Scroll to top');
-scrollToTopBtn.style.cssText = `
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--surface, #fdfdfa);
-    color: var(--accent, #447513);
-    border: 1px solid var(--line-strong, rgba(24, 32, 20, 0.32));
-    border-radius: 0;
-    width: 46px;
-    height: 46px;
-    font-size: 14px;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
 
 document.body.appendChild(scrollToTopBtn);
 
 // Show/hide scroll to top button
 function handleScrollToTop() {
     // Hide scroll-to-top button on mobile for better performance
-    if (window.innerWidth <= 768) {
-        scrollToTopBtn.style.opacity = '0';
-        scrollToTopBtn.style.visibility = 'hidden';
-        return;
-    }
-
-    if (window.pageYOffset > 300) {
-        scrollToTopBtn.style.opacity = '1';
-        scrollToTopBtn.style.visibility = 'visible';
-    } else {
-        scrollToTopBtn.style.opacity = '0';
-        scrollToTopBtn.style.visibility = 'hidden';
-    }
+    const show = window.innerWidth > 768 && window.pageYOffset > SCROLL_TOP_THRESHOLD;
+    scrollToTopBtn.classList.toggle('visible', show);
 }
 
 window.addEventListener('scroll', handleScrollToTop, { passive: true });
@@ -393,9 +359,58 @@ if ('ontouchstart' in window && window.innerWidth > 768) {
     });
 }
 
-// Global functions for manual control
-window.forceStartTypewriter = function () {
-    startTypewriter();
-};
+// Contact form: AJAX submission to Formspree with inline feedback
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    const formStatus = document.getElementById('form-status');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const submitBtnHTML = submitBtn ? submitBtn.innerHTML : '';
 
-window.startTypewriter = startTypewriter;
+    function showFormStatus(message, type) {
+        if (!formStatus) return;
+        formStatus.textContent = message;
+        formStatus.className = `form-status ${type}`;
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Let the browser surface built-in validation messages first
+        if (!contactForm.checkValidity()) {
+            contactForm.reportValidity();
+            return;
+        }
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        }
+        showFormStatus('', '');
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                contactForm.reset();
+                showFormStatus("Thanks for your message! I'll get back to you within 24-48 hours.", 'success');
+            } else {
+                const data = await response.json().catch(() => null);
+                const errorMsg = data && data.errors
+                    ? data.errors.map(err => err.message).join(', ')
+                    : 'Something went wrong while sending your message. Please try again.';
+                showFormStatus(errorMsg, 'error');
+            }
+        } catch (err) {
+            showFormStatus('Network error - please check your connection and try again, or email me directly.', 'error');
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = submitBtnHTML;
+            }
+        }
+    });
+}
