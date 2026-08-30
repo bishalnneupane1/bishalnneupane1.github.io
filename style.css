@@ -1841,6 +1841,8 @@ footer p { color: rgba(245, 239, 223, 0.58); }
 .research-fit-note i { color: var(--research-signal); font-size: 1.15rem; }
 .research-fit-note p { margin: 0; font-size: 0.92rem; max-width: 70ch; }
 .research-fit-note .btn { background: var(--research-ink); border-color: var(--research-ink); color: var(--research-paper); }
+
+.publications-profile-link { margin: -0.9rem 0 2rem; max-width: none; text-align: center; }
 .research-fit-note .btn:hover { background: var(--research-signal); border-color: var(--research-signal); }
 
 .education > .container > h2::before { content: "Academic foundation /"; }
