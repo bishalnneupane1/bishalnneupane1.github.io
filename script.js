@@ -12,6 +12,17 @@ window.addEventListener('resize', syncHeaderHeight, { passive: true });
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const body = document.body;
+const mobileNavigation = window.matchMedia('(max-width: 1080px)');
+
+function syncNavAccessibility(isOpen = navMenu.classList.contains('active')) {
+    if (mobileNavigation.matches) {
+        navMenu.setAttribute('aria-hidden', String(!isOpen));
+    } else {
+        navMenu.removeAttribute('aria-hidden');
+    }
+}
+
+syncNavAccessibility(false);
 
 // Toggle mobile navigation
 function toggleMobileNav() {
@@ -23,7 +34,7 @@ function toggleMobileNav() {
     body.classList.toggle('nav-open', willOpen);
 
     hamburger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-    navMenu.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
+    syncNavAccessibility(willOpen);
 
     if (willOpen && 'vibrate' in navigator) navigator.vibrate(50);
 
@@ -39,7 +50,7 @@ function closeMobileNav() {
     body.style.overflow = '';
     body.style.touchAction = '';
     hamburger.setAttribute('aria-expanded', 'false');
-    navMenu.setAttribute('aria-hidden', 'true');
+    syncNavAccessibility(false);
 }
 
 // Reset state when resizing to desktop so the menu doesn't get stuck.
@@ -47,6 +58,7 @@ window.addEventListener('resize', () => {
     if (window.innerWidth > 1080 && navMenu.classList.contains('active')) {
         closeMobileNav();
     }
+    syncNavAccessibility();
 }, { passive: true });
 
 // Enhanced touch event handling
@@ -97,14 +109,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerOffset = 70;
+            const headerOffset = headerEl ? headerEl.getBoundingClientRect().height : 0;
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth'
+                behavior: prefersReducedMotion ? 'auto' : 'smooth'
             });
+
+            history.pushState(null, '', this.hash);
+            target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
         }
     });
 });
@@ -246,6 +262,11 @@ function startTypewriter() {
         'precision agriculture'
     ];
 
+    if (prefersReducedMotion) {
+        element.textContent = skills[0];
+        return;
+    }
+
     const TYPE_DELAY = isMobileView ? 60 : 80;
     const DELETE_DELAY = isMobileView ? 25 : 30;
     const HOLD_DELAY = 2000; // pause on the full word before deleting
@@ -326,7 +347,7 @@ window.addEventListener('scroll', handleScrollToTop, { passive: true });
 scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
     });
 });
 
