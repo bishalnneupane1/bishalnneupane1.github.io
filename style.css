@@ -347,7 +347,7 @@ body.nav-open .navbar { border-bottom-color: var(--rule); }
 
 .nav-menu a {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--ink-2);
   padding: 4px 0;
   border-bottom: 1px solid transparent;
@@ -364,6 +364,9 @@ body.nav-open .navbar { border-bottom-color: var(--rule); }
 /* Which page you are on */
 .nav-menu a[aria-current="page"] {
   color: var(--ink);
+  /* one step above the rest so the current page still stands out now that
+     every link sits at 500 */
+  font-weight: 600;
   border-bottom-color: var(--accent);
 }
 .nav-menu .nav-cta[aria-current="page"] { color: var(--accent); }
