@@ -1,3 +1,46 @@
+// THEME TOGGLE
+// The pre-paint script in <head> has already set data-theme; this only handles
+// user switching and persistence.
+const themeToggle = document.querySelector('.theme-toggle');
+
+function syncThemeToggle(theme) {
+    if (!themeToggle) return;
+    const isDark = theme === 'dark';
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+}
+
+syncThemeToggle(document.documentElement.getAttribute('data-theme'));
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        syncThemeToggle(next);
+        try {
+            localStorage.setItem('theme', next);
+        } catch (e) {
+            /* storage unavailable (private mode, blocked cookies) — theme still applies for this visit */
+        }
+    });
+}
+
+// Follow the OS until the visitor has made an explicit choice.
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        let stored = null;
+        try {
+            stored = localStorage.getItem('theme');
+        } catch (err) {
+            /* ignore */
+        }
+        if (stored) return;
+        const next = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        syncThemeToggle(next);
+    });
+}
+
 // Sync --header-height CSS variable so the mobile nav menu top aligns exactly with the header
 const headerEl = document.querySelector('header');
 function syncHeaderHeight() {
@@ -130,9 +173,6 @@ let scrollTimeout;
 let lastScrollY = 0;
 
 function handleNavbarScroll() {
-    // Skip navbar animations on mobile for better performance
-    if (window.innerWidth <= 768) return;
-
     const currentScrollY = window.scrollY;
 
     if (Math.abs(currentScrollY - lastScrollY) < 5) return;
@@ -140,16 +180,16 @@ function handleNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
+    // Toggle a class rather than an inline shadow so the stylesheet keeps
+    // control of the frosted-header treatment in both themes.
     requestAnimationFrame(() => {
-        if (currentScrollY > 50) {
-            navbar.style.boxShadow = '0 14px 28px -22px rgba(23,28,19,0.35)';
-        } else {
-            navbar.style.boxShadow = 'none';
-        }
+        navbar.classList.toggle('scrolled', currentScrollY > 40);
     });
 
     lastScrollY = currentScrollY;
 }
+
+handleNavbarScroll();
 
 // Throttled scroll event listener
 window.addEventListener('scroll', () => {

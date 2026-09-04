@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NJG6S7FP');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#101113" media="(prefers-color-scheme: dark)">
+
+    <!-- Applied before first paint so the page never flashes the wrong theme. -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored || (window.matchMedia
+                    && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Bishal Nneupane">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="The research methods and technical stack behind the work: Google Earth Engine, Sentinel-2, Python, R and GIS, with the satellite analyses and software projects built on them.">
+    <meta name="keywords"
+        content="Bishal Nneupane, Precision Agriculture Nepal, Remote Sensing Expert, Google Earth Engine, Agricultural Data Science, NDVI Monitoring, GIS Nepal">
+    <meta name="author" content="Bishal Nneupane">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.bishalnneupane.com.np/methods.html">
+    <link rel="alternate" hreflang="en" href="https://www.bishalnneupane.com.np/methods.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.bishalnneupane.com.np/methods.html" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Methods – Technical Skills, Research &amp; Software Projects | Bishal Nneupane">
+    <meta property="og:description"
+        content="The research methods and technical stack behind the work: Google Earth Engine, Sentinel-2, Python, R and GIS, with the satellite analyses and software projects built on them.">
+    <meta property="og:image" content="https://www.bishalnneupane.com.np/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Bishal Nneupane - Precision Agriculture Specialist from Nepal">
+    <meta property="og:url" content="https://www.bishalnneupane.com.np/methods.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Bishal Nneupane">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bishalnneupane1">
+    <meta name="twitter:creator" content="@bishalnneupane1">
+    <meta name="twitter:title" content="Methods – Technical Skills, Research &amp; Software Projects | Bishal Nneupane">
+    <meta name="twitter:description"
+        content="The research methods and technical stack behind the work: Google Earth Engine, Sentinel-2, Python, R and GIS, with the satellite analyses and software projects built on them.">
+    <meta name="twitter:image" content="https://www.bishalnneupane.com.np/og-image.jpg">
+    <meta name="twitter:image:alt" content="Bishal Nneupane - Precision Agriculture Specialist">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <title>Methods – Technical Skills, Research &amp; Software Projects | Bishal Nneupane</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.bishalnneupane.com.np/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Methods",
+                "item": "https://www.bishalnneupane.com.np/methods.html"
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJG6S7FP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Noscript fallback for SEO crawlers -->
+    <noscript>
+        <style>
+            .animate-on-scroll {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">BN<span class="logo-cursor">_</span></a>
+                <ul class="nav-menu" id="primary-navigation">
+                    <li><a href="index.html" title="Back to the homepage">Home</a></li>
+                    <li><a href="research-fit.html" title="MSc research interests and assistantship fit">Research Fit</a></li>
+                    <li><a href="methods.html" title="Research methods, technical skills, and applied projects" aria-current="page">Methods</a></li>
+                    <li><a href="experience.html" title="Research, field, and development experience">Experience</a></li>
+                    <li><a href="publications.html" title="Research articles, certifications, and writing">Publications</a></li>
+                    <li><a href="contact.html" title="Contact Bishal about MSc supervision or research assistantships">Contact</a></li>
+                    <li><a href="cv.html" class="nav-cta" title="Download academic CV">Academic CV</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+                        <i class="fas fa-sun" aria-hidden="true"></i>
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                    </button>
+                    <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section id="skills" class="skills">
+            <div class="container">
+                <h1>Technical Skills</h1>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-chart-bar"></i> Analytical Tools</h3>
+                        <ul>
+                            <li>Power BI</li>
+                            <li>Tableau</li>
+                            <li>Machine Learning</li>
+                            <li>Advanced Excel</li>
+                            <li>Google Analytics</li>
+                            <li>Power Query</li>
+                            <li>Technical Analysis (RSI, MACD, Bollinger Bands)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Programming & Development</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>R</li>
+                            <li>SQL</li>
+                            <li>JavaScript</li>
+                            <li>Django</li>
+                            <li>Flask</li>
+                            <li>FastAPI</li>
+                            <li>Google Apps Script</li>
+                            <li>RESTful APIs</li>
+                            <li>WebSocket Programming</li>
+                            <li>Git & GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-database"></i> Data & Cloud Technologies</h3>
+                        <ul>
+                            <li>MySQL</li>
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                            <li>SQLite</li>
+                            <li>Google Cloud Platform</li>
+                            <li>Jupyter Notebook</li>
+                            <li>R Studio</li>
+                            <li>Anaconda Navigator</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-robot"></i> AI & Machine Learning</h3>
+                        <ul>
+                            <li>Google Gemini AI</li>
+                            <li>Google AI Studio</li>
+                            <li>Pandas & NumPy</li>
+                            <li>Scikit-learn</li>
+                            <li>TensorFlow</li>
+                            <li>Natural Language Processing (NLP)</li>
+                            <li>Content Generation AI</li>
+                            <li>Sentiment Analysis</li>
+                            <li>AI-Powered Trading Systems</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-chart-line"></i> Financial & Trading Technology</h3>
+                        <ul>
+                            <li>Algorithmic Trading</li>
+                            <li>Portfolio Management Systems</li>
+                            <li>Risk Assessment & Analytics</li>
+                            <li>Real-time Data Processing</li>
+                            <li>Financial API Integration</li>
+                            <li>Backtesting Engines</li>
+                            <li>Price Alert Systems</li>
+                            <li>Email Broadcasting Systems</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-users"></i> Professional Skills</h3>
+                        <ul>
+                            <li>Full-Stack Development</li>
+                            <li>System Architecture Design</li>
+                            <li>SEO Optimization</li>
+                            <li>Content Strategy</li>
+                            <li>Project Management</li>
+                            <li>Team Leadership</li>
+                            <li>Technical Documentation</li>
+                            <li>Client Communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="agriculture-showcase" class="agriculture-showcase">
+            <div class="container">
+                <h2>Selected Research &amp; Technical Work</h2>
+                <p class="section-intro">Examples of applied work in satellite remote sensing, GIS analysis, Google Earth Engine, and agricultural data science. Each project reflects an interest in turning spatial evidence into useful, reproducible insight.</p>
+
+                <div class="showcase-grid">
+                    <div class="showcase-item" data-category="precision-ag">
+                        <div class="showcase-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h3>Precision Ag in Kaski, Nepal</h3>
+                        <p>Used Google Earth Engine to build dry- and wet-season Sentinel-2 composites and derive five
+                            key indices—NDVI, NDWI, SAVI, GCI & PSRI—then applied K-Means clustering for six land-cover
+                            classes with pixel-level precision.</p>
+                        <div class="showcase-tags">
+                            <span>Google Earth Engine</span>
+                            <span>Sentinel-2</span>
+                            <span>K-Means</span>
+                            <span>NDVI/NDWI</span>
+                        </div>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_precisionag-remotesensing-googleearthengine-activity-7345077332799361024-J8mO?utm_source=share&utm_medium=member_desktop"
+                                target="_blank" rel="noopener noreferrer" class="btn btn-secondary"
+                                onclick="window.open(this.href, '_blank'); return false;">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                        <div class="showcase-demo">
+                            <div class="demo-satellite">
+                                <div class="satellite-grid">
+                                    <div class="pixel" data-class="forest"></div>
+                                    <div class="pixel" data-class="cropland"></div>
+                                    <div class="pixel" data-class="irrigated"></div>
+                                    <div class="pixel" data-class="barren"></div>
+                                    <div class="pixel" data-class="forest"></div>
+                                    <div class="pixel" data-class="grazing"></div>
+                                    <div class="pixel" data-class="cropland"></div>
+                                    <div class="pixel" data-class="water"></div>
+                                </div>
+                                <div class="indices-display">
+                                    <span class="index">NDVI: 0.82</span>
+                                    <span class="index">NDWI: -0.15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item" data-category="earth-engine">
+                        <div class="showcase-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3>Google Earth Engine Mastery</h3>
+                        <p>Completed End-to-End Google Earth Engine course, mastering global geospatial datasets,
+                            dynamic mapping, and remote sensing analyses. Generated high-res watershed maps and
+                            classified land-cover maps of Nepal.</p>
+                        <div class="showcase-tags">
+                            <span>Time-Series Analysis</span>
+                            <span>NDVI Trends</span>
+                            <span>Land Classification</span>
+                            <span>Nepal</span>
+                        </div>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_googleearthengine-gis-remotesensing-activity-7328753979419475968-7goJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADW0rlUBN76B5N8i59UNKZGZ-32SU0aw2es"
+                                target="_blank" rel="noopener" class="btn btn-secondary">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                        <div class="showcase-demo">
+                            <div class="demo-timeseries">
+                                <svg viewBox="0 0 300 120" class="ndvi-chart">
+                                    <path d="M20,100 Q60,20 120,40 Q180,60 260,25" stroke="#4CAF50" fill="none"
+                                        stroke-width="3" />
+                                    <path d="M20,80 Q60,40 120,30 Q180,45 260,35" stroke="#2196F3" fill="none"
+                                        stroke-width="2" stroke-dasharray="5,5" />
+                                    <text x="20" y="115" font-size="10" fill="#666">2017</text>
+                                    <text x="260" y="115" font-size="10" fill="#666">2025</text>
+                                    <text x="10" y="30" font-size="8" fill="#4CAF50">NDVI</text>
+                                    <text x="10" y="45" font-size="8" fill="#2196F3">NDWI</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item" data-category="r-programming">
+                        <div class="showcase-icon">
+                            <i class="fab fa-r-project"></i>
+                        </div>
+                        <h3>R Programming for Research</h3>
+                        <p>Mastered Research Data Analysis with R in 7 days - from messy spreadsheets to
+                            publication-ready insights. Advanced statistical analysis, ggplot2 visualizations, PCA, and
+                            R Markdown reporting for agricultural research.</p>
+                        <div class="showcase-tags">
+                            <span>Statistical Analysis</span>
+                            <span>ggplot2</span>
+                            <span>R Markdown</span>
+                            <span>PCA</span>
+                        </div>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_rstats-rprogramming-scientificresearch-activity-7317535873472897025-ustq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADW0rlUBN76B5N8i59UNKZGZ-32SU0aw2es"
+                                target="_blank" rel="noopener" class="btn btn-secondary">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                        <div class="showcase-demo">
+                            <div class="demo-r-analysis">
+                                <div class="r-code">
+                                    <div class="code-line">library(ggplot2)</div>
+                                    <div class="code-line">aov(yield ~ treatment)</div>
+                                    <div class="code-line">ggplot() + geom_point()</div>
+                                </div>
+                                <div class="r-output">
+                                    <div class="plot-area">
+                                        <div class="scatter-point" style="left: 20%; top: 30%;"></div>
+                                        <div class="scatter-point" style="left: 40%; top: 20%;"></div>
+                                        <div class="scatter-point" style="left: 60%; top: 40%;"></div>
+                                        <div class="scatter-point" style="left: 80%; top: 25%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="showcase-item" data-category="nepse-ai">
+                        <div class="showcase-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>NEPSE AI Trading Platform</h3>
+                        <p>Advanced AI-powered trading platform for Nepal Stock Exchange with comprehensive portfolio
+                            management, intelligent stock analysis, and complete trading automation. Features real-time
+                            data from 240+ stocks, AI-powered recommendations using Google Gemini, and advanced
+                            backtesting engine with multiple trading strategies.</p>
+                        <div class="showcase-tags">
+                            <span>Google Gemini AI</span>
+                            <span>Python/Flask</span>
+                            <span>WebSocket Real-time</span>
+                            <span>Portfolio Management</span>
+                        </div>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://github.com/bishalnneupane1/nepse_ai_app" target="_blank" rel="noopener"
+                                class="btn btn-secondary">
+                                <i class="fab fa-github"></i> View NEPSE AI Platform
+                            </a>
+                        </div>
+                        <div class="showcase-demo">
+                            <div class="demo-ai-system">
+                                <div class="ai-components">
+                                    <div class="component" data-type="trading"><i class="fas fa-chart-line"></i> Stock Analysis</div>
+                                    <div class="component" data-type="content"><i class="fas fa-briefcase"></i> Portfolio Mgmt</div>
+                                    <div class="component" data-type="analysis"><i class="fas fa-bell"></i> Price Alerts</div>
+                                    <div class="component" data-type="automation"><i class="fas fa-paper-plane"></i> AI Reports</div>
+                                </div>
+                                <div class="ai-metrics">
+                                    <span class="metric">240+ NEPSE Stocks</span>
+                                    <span class="metric">AI Trading Signals</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Project Highlight -->
+                <div class="featured-project">
+                    <div class="project-header">
+                        <h3>Featured: NDWI Analysis for Pokhara Lekhnath</h3>
+                        <p>Tracking water presence and environmental changes using satellite imagery</p>
+                        <div class="project-link" style="margin-top: var(--space-md);">
+                            <a href="https://www.linkedin.com/posts/bishalnneupane_this-chart-might-look-simple-but-for-activity-7320496022374260736-mZ7S?utm_source=share&utm_medium=member_desktop&rcm=ACoAADW0rlUBN76B5N8i59UNKZGZ-32SU0aw2es"
+                                target="_blank" rel="noopener" class="btn btn-primary btn-small">
+                                <i class="fab fa-linkedin"></i> View LinkedIn Post
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-insights">
+                        <div class="insight-card">
+                            <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>Seasonal Patterns</h4>
+                            <p>Identified seasonal pulses of water presence and persistent negative NDWI patterns</p>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon"><i class="fas fa-satellite"></i></div>
+                            <h4>Satellite Mapping</h4>
+                            <p>Generated visual maps making invisible water body changes visible for decision-makers</p>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon"><i class="fas fa-water"></i></div>
+                            <h4>Conservation Impact</h4>
+                            <p>Supporting urban resilience, sustainable tourism, and environmental conservation efforts
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="software-projects" class="software-projects">
+            <div class="container">
+                <h2>Software Development Projects</h2>
+                <p class="section-intro">Full-stack applications built with modern technologies combining AI, data
+                    science, and user-centric design.</p>
+
+                <div class="projects-grid">
+                    <!-- NEPSE Stock Analysis -->
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>NEPSE Stock Analysis Platform</h3>
+                        <p>A comprehensive stock analysis and backtesting platform for the Nepal Stock Exchange.
+                            Features real-time market data, technical analysis, ML predictions, and portfolio
+                            management.</p>
+
+                        <div class="project-features">
+                            <div class="feature-item"><i class="fas fa-check"></i> MA Crossover & Pattern Recognition
+                            </div>
+                            <div class="feature-item"><i class="fas fa-check"></i> ML Price Predictions</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> Portfolio Tracker & Watchlist</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> Strategy Backtester</div>
+                        </div>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag react">React 19</span>
+                            <span class="tech-tag typescript">TypeScript</span>
+                            <span class="tech-tag node">Node.js</span>
+                            <span class="tech-tag">Express 5</span>
+                            <span class="tech-tag">Prisma</span>
+                            <span class="tech-tag python">Python ML</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/bishalnneupane1/nepse_app_analysis" target="_blank"
+                                rel="noopener" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Crop Disease Detection -->
+                    <div class="project-card">
+                        <div class="project-icon agriculture">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Crop Disease Detection System</h3>
+                        <p>A research-oriented mobile AI system for detecting crop diseases from leaf images with
+                            scientifically grounded treatment recommendations. Building Nepal Agricultural Disease
+                            Dataset (NADD).</p>
+
+                        <div class="project-features">
+                            <div class="feature-item"><i class="fas fa-check"></i> CNN-based Disease Detection</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> FAO/USDA Treatment Citations</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> Offline TFLite Support</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> GPS-Tagged Research Data</div>
+                        </div>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag flutter">Flutter</span>
+                            <span class="tech-tag python">FastAPI</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">MobileNetV2</span>
+                            <span class="tech-tag">TFLite</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/bishalnneupane1/disease_detection_app_flutter" target="_blank"
+                                rel="noopener" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Agriverse App -->
+                    <div class="project-card">
+                        <div class="project-icon education">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Agriverse Education Platform</h3>
+                        <p>A comprehensive Flutter app for agriculture students in Nepal & India. Features study notes,
+                            entrance exam prep, mock tests, gamification with streaks & achievements, and
+                            Firebase-powered admin panel.</p>
+
+                        <div class="project-features">
+                            <div class="feature-item"><i class="fas fa-check"></i> 1000+ MCQs with Explanations</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> Mock Tests with Analytics</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> Gamification & Achievements</div>
+                            <div class="feature-item"><i class="fas fa-check"></i> Firebase Admin Panel</div>
+                        </div>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag flutter">Flutter</span>
+                            <span class="tech-tag">Provider</span>
+                            <span class="tech-tag firebase">Firebase</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Firestore</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/bishalnneupane1/agriverse_flutter_app" target="_blank"
+                                rel="noopener" class="btn btn-secondary">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="copyright-year">2026</span> Bishal Nneupane. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>
