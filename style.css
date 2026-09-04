@@ -82,23 +82,9 @@
   color-scheme: dark;
 }
 
-/* If the pre-paint script never runs, still honour the OS preference. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper:        #101113;
-    --wash:         #17191C;
-    --wash-2:       #1D2023;
-    --ink:          #E8E8E6;
-    --ink-2:        #9B9D9F;
-    --ink-3:        #83868A;
-    --rule:         #26282B;
-    --rule-2:       #3A3D40;
-    --accent:       #35BE99;
-    --accent-2:     #E4734D;
-    --accent-wash:  #14201C;
-    color-scheme: dark;
-  }
-}
+/* Light is the default for every visitor, so there is deliberately no
+   prefers-color-scheme fallback here: a dark OS must not darken the site.
+   Dark applies only via [data-theme="dark"], which the toggle sets. */
 
 /* ---------- RESET ---------- */
 *, *::before, *::after { box-sizing: border-box; }

@@ -1,43 +1,33 @@
 // THEME TOGGLE
-// The pre-paint script in <head> has already set data-theme; this only handles
-// user switching and persistence.
+// Light is the default for every visitor. The pre-paint script in <head> has
+// already applied it; dark is opt-in and only persists for whoever chose it.
+// The OS colour scheme is deliberately not followed.
 const themeToggle = document.querySelector('.theme-toggle');
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
-function syncThemeToggle(theme) {
-    if (!themeToggle) return;
+const THEME_COLOR = { light: '#FFFFFF', dark: '#101113' };
+
+function syncTheme(theme) {
     const isDark = theme === 'dark';
+    // Keep the browser/OS chrome matching the page rather than the OS setting.
+    if (themeColorMeta) themeColorMeta.setAttribute('content', THEME_COLOR[isDark ? 'dark' : 'light']);
+    if (!themeToggle) return;
     themeToggle.setAttribute('aria-pressed', String(isDark));
     themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
 }
 
-syncThemeToggle(document.documentElement.getAttribute('data-theme'));
+syncTheme(document.documentElement.getAttribute('data-theme'));
 
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
-        syncThemeToggle(next);
+        syncTheme(next);
         try {
             localStorage.setItem('theme', next);
         } catch (e) {
             /* storage unavailable (private mode, blocked cookies) — theme still applies for this visit */
         }
-    });
-}
-
-// Follow the OS until the visitor has made an explicit choice.
-if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        let stored = null;
-        try {
-            stored = localStorage.getItem('theme');
-        } catch (err) {
-            /* ignore */
-        }
-        if (stored) return;
-        const next = e.matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', next);
-        syncThemeToggle(next);
     });
 }
 
